@@ -18,7 +18,7 @@ class ContainerTerminal:
         self.trucks = simpy.Resource(env, NUM_TRUCKS)
 
     def discharge_vessel(self, vessel_name):
-        """Process to discharge containers from a vessel using cranes and trucks."""
+        """Method to discharge containers from a vessel using cranes and trucks."""
         with self.berth.request() as berth_request:
             yield berth_request
             print(f"{vessel_name} has berthed at time {env.now}")
@@ -46,4 +46,4 @@ def vessel_generator(env, terminal):
 env = simpy.Environment()
 terminal = ContainerTerminal(env)
 env.process(vessel_generator(env, terminal))
-env.run(until=720)  # Run the simulation for 1 day (1440 minutes)
+env.run(until=720)  # Run the simulation for half a day (720 minutes) - please configure the the time here to run the simulation
