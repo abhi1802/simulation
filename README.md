@@ -34,6 +34,7 @@ python main.py
 ```
 
 ### Setup environment to run the test cases
+- pytest testing framework is used here to write the unit tests.
 
 ```bash
 
